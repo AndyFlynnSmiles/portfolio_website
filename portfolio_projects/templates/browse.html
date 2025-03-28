@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+<title>Projects</title>
+{% endblock %}
+
+{% block 'content' %}
+<div class="planet-container">
+    <svg class="ringed-planet-svg" viewBox="0 0 200 100">
+        <linearGradient id="cloudy-gradient" gradientTransform="rotate(90)">
+            <stop offset="10%" stop-color="color-mix(in hsl, #FF681F, white 0%)" />
+            <stop offset="13%" stop-color="color-mix(in hsl, #FF681F, white 40%)" />
+            <stop offset="16%" stop-color="color-mix(in hsl, #FF681F, white 0%)" />
+            <stop offset="19%" stop-color="color-mix(in hsl, #FF681F, white 20%)" />
+            <stop offset="22%" stop-color="color-mix(in hsl, #FF681F, white 0%)" />
+            <stop offset="26%" stop-color="color-mix(in hsl, #FF681F, white 0%)" />
+            <stop offset="40%" stop-color="color-mix(in hsl, #FF681F, white 40%)" />
+            <stop offset="54%" stop-color="color-mix(in hsl, #FF681F, white 0%)" />
+            <stop offset="76%" stop-color="color-mix(in hsl, #FF681F, white 0%)" />
+            <stop offset="81%" stop-color="color-mix(in hsl, #FF681F, white 40%)" />
+            <stop offset="89%" stop-color="color-mix(in hsl, #FF681F, white 20%)" />
+            <stop offset="92%" stop-color="color-mix(in hsl, #FF681F, white 0%)" />
+        </linearGradient>
+        <circle class="ringed-planet-circle" cx="100" cy="50" r="50" fill="url('#cloudy-gradient')" filter="url(#planet-noise)">
+        <filter id="planet-noise">
+            <feTurbulence baseFrequency="0.04 0.1" numOctaves="2" result="NOISE" stitchTiles="stitch"></feTurbulence>
+            <feTile in="NOISE" x="-70" y="0" width="240" height="100" result="NOISE"></feTile>
+            <feOffset id="shift" in="NOISE" dx="0" dy="0" result="NOISE">
+                <animate
+                attributeName="dx"
+                begin="0s"
+                dur="60s"
+                from="0"
+                to="120"
+                repeatCount="indefinite" />
+            </feOffset>
+            <feBlend in="SourceGraphic" in2="NOISE" mode="multiply" result="BLEND"></feBlend>
+            <feColorMatrix in="BLEND" type="matrix"
+                    values="2 0 0 0 0
+                            0 2 0 0 0
+                            0 0 2 0 0
+                            0 0 0 2 0" result="BLEND"></feColorMatrix>
+            <feComposite operator="in" in="BLEND" in2="SourceGraphic" result="COMP"></feComposite>
+        </filter>
+    </svg>    
+</div>
+
+<div class="projects">
+    {% for project in project_data %}
+    <div class="project">
+        <div class="project-text">
+            <h4>{{ project.name }}</h4>
+            <img class="project-thumbnail" src="{{ project.thumbnail.url }}"></img>
+            <ul>
+                {% for skill in project.skills %}
+                <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+            <p>{{ project.description }}</p>
+            <a href='{% url project.name %}'>Learn More</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

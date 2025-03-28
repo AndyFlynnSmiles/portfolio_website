@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+<title>Profile</title>
+{% endblock %}
+
+{% block 'content' %}
+{% load static %}
+<div class="holo-profile">
+    <img class="holo-image" src="{% static "profile_picture.jpg" %}"></image>
+    <div class="holo-overlay"></div>
+</div>
+<div class="holo-base"></div>
+<div class="full-tablet">
+    <div class="full-screen">
+        <h1>Andrew Smiles</h1>
+        <h2>About me:</h2>
+        <p>I graduated last year with a Bachelor of Computer Science from the University of Canterbury NZ.</p>
+        <h2>Contacts:</h2>
+        <p><b>Phone >></b> <a class="email-link" href="tel:+64-21-058-6665">+64 21 058 6665</a></p>
+        <p><b>Email >></b> <a class="email-link" href="mailto:andy.flynn.smiles@gmail.com">andy.flynn.smiles@gmail.com</a></p>
+        <h2>Technical skills:</h2>
+        <ul>
+            <li>Confident Python programming.</li>
+            <li>Django website creation.</li>
+            <li>Proficient C++ programming.</li>
+        </ul>
+        <h2>Personal skills:</h2>
+        <ul>
+            <li>Methodical planning and problem solving.</li>
+            <li>Reliable time management.</li>
+            <li>Effective teamwork and communication.</li>
+            <li>Curiosity driven learning.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

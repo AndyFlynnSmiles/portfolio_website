@@ -1,0 +1,379 @@
+body {
+    background-image: url("stars.jpg");
+    background-size: 2000px;
+    font-family: verdana;
+    padding: 0pt;
+    width: 100%;
+    margin: 0pt;
+}
+
+.space-text {
+    color: whitesmoke;
+    text-shadow: 1pt 1pt #60747e;
+    font-weight: 400;
+}
+
+.nav-bar {
+    position: fixed;
+    z-index: 10;
+    left: 0pt;
+    top: 0pt;
+    width: 100%;
+    height: 32pt;
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    background: linear-gradient(
+        45deg,
+        color-mix(in hsl, #8BA8B7, white 0%) 10%,
+        color-mix(in hsl, #8BA8B7, white 60%) 13%,
+        color-mix(in hsl, #8BA8B7, white 0%) 16%,
+        color-mix(in hsl, #8BA8B7, white 40%) 19%,
+        color-mix(in hsl, #8BA8B7, white 0%) 22%,
+        color-mix(in hsl, #8BA8B7, white 0%) 80%,
+        color-mix(in hsl, #8BA8B7, white 60%) 83%,
+        color-mix(in hsl, #8BA8B7, white 0%) 86%,
+        color-mix(in hsl, #8BA8B7, white 40%) 89%,
+        color-mix(in hsl, #8BA8B7, white 0%) 92%
+        );
+    box-shadow: 0pt 3pt #60747e;
+}
+
+.nav-bar button {
+    position: relative;
+    top: 5pt;
+    text-align: center;
+    font-size: 11.5pt;
+    background-color: #D05340;
+    width: 80pt;
+    height: 20pt;
+    border: 0pt;
+    border-radius: 7pt;
+    cursor: pointer;
+    box-shadow: 0pt 3pt #832A0D;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+    font-weight: bold;
+    color: whitesmoke;
+    text-shadow: 1pt;
+}
+
+.nav-bar button:active {
+    background-color: #933709;
+    transform: translateY(2pt);
+    box-shadow: 0pt 1pt #832A0D;
+    transition: transform 0.05s ease, box-shadow 0.05s ease, background-color 0.05s ease;
+}
+
+.nav-bar button.selected {
+    background-color: #933709;
+    transform: translateY(2pt);
+    box-shadow: 0pt 1pt #832A0D;
+}
+
+.content {
+    margin-top: 32pt;
+    position: absolute;
+    left: 0pt;
+    width: 100%;
+    text-align: center;
+}
+
+.planet-container {
+    position: absolute;
+    top: 30pt;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.ringed-planet-svg {
+    position: relative;
+    width: 90vmin;
+}
+
+.projects {
+    width: 100%;
+    margin-top: 20pt;
+}
+
+.project {
+    display: inline-block;
+    background: linear-gradient(
+        45deg,
+        color-mix(in hsl, #8BA8B7, white 0%) 10%,
+        color-mix(in hsl, #8BA8B7, white 60%) 13%,
+        color-mix(in hsl, #8BA8B7, white 0%) 16%,
+        color-mix(in hsl, #8BA8B7, white 40%) 19%,
+        color-mix(in hsl, #8BA8B7, white 0%) 22%,
+        color-mix(in hsl, #8BA8B7, white 0%) 80%,
+        color-mix(in hsl, #8BA8B7, white 60%) 83%,
+        color-mix(in hsl, #8BA8B7, white 0%) 86%,
+        color-mix(in hsl, #8BA8B7, white 40%) 89%,
+        color-mix(in hsl, #8BA8B7, white 0%) 92%
+        );
+    margin-left: 10pt;
+    margin-right: 10pt;
+    margin-bottom: 20pt;
+    border-radius: 10pt;
+    width: 400pt;
+    vertical-align: top;
+    aspect-ratio: 115 / 100;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.project-text {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    margin-top: 5%;
+    padding-top: 1pt;
+    margin-bottom: 5%;
+    background-color: #023612;
+    border-radius: 3pt;
+    padding-bottom: 6pt;
+    color: #1FC742;
+}
+
+.project-text h4 {
+    margin-top: 5pt;
+    font-size: 16pt;
+}
+
+.project-text p {
+    margin-left: 5pt;
+    margin-right: 5pt;
+    font-size: 14pt;
+}
+
+.project-text ul {
+    margin-left: 22%;
+    margin-right: 5pt;
+    font-size: 14pt;
+    text-align: left;
+}
+
+.project-text a {
+    color: #1FC742;
+    font-size: 15pt;
+}
+
+.project-thumbnail {
+    height: 100pt;
+    margin: auto;
+    border-radius: 5pt;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+@media only screen and (max-width: 700px) {
+    .project {
+        width: 300pt;
+    }
+    
+    .project-text h4 {
+        margin-top: 5pt;
+        font-size: 14pt;
+    }
+    
+    .project-text p {
+        margin-left: 5pt;
+        margin-right: 5pt;
+        font-size: 10pt;
+    }
+    
+    .project-text ul {
+        margin-left: 22%;
+        margin-right: 5pt;
+        font-size: 10pt;
+        text-align: left;
+    }
+    
+    .project-text a {
+        color: #1FC742;
+        font-size: 12pt;
+    }
+    
+    .project-thumbnail {
+        height: 70pt;
+    }
+}
+
+.stars {
+    width: 50%;
+}
+
+.full-tablet {
+    background: linear-gradient(
+        45deg,
+        color-mix(in hsl, #8BA8B7, white 0%) 10%,
+        color-mix(in hsl, #8BA8B7, white 60%) 13%,
+        color-mix(in hsl, #8BA8B7, white 0%) 16%,
+        color-mix(in hsl, #8BA8B7, white 40%) 19%,
+        color-mix(in hsl, #8BA8B7, white 0%) 22%,
+        color-mix(in hsl, #8BA8B7, white 0%) 80%,
+        color-mix(in hsl, #8BA8B7, white 60%) 83%,
+        color-mix(in hsl, #8BA8B7, white 0%) 86%,
+        color-mix(in hsl, #8BA8B7, white 40%) 89%,
+        color-mix(in hsl, #8BA8B7, white 0%) 92%
+        );
+    border-radius: 10pt;
+    width: 90%;
+    padding: 1vmin;
+    margin: auto;
+    margin-bottom: 20pt;
+}
+
+.full-screen {
+    margin: 10pt;
+    padding-top: 1pt;
+    background-color: #023612;
+    border-radius: 3pt;
+    padding-bottom: 6pt;
+    color: #1FC742;
+    font-size: 12pt;
+    line-height: 14pt;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20pt;
+    text-align: left;
+}
+
+.full-screen h1 {
+    line-height: 0pt;
+    font-size: 26pt;
+    font-weight: 800;
+    text-align: center;
+}
+
+.full-screen h2 {
+    text-decoration: underline;
+}
+
+.full-screen a {
+    color: #1FC742;
+    font-size: 14pt;
+}
+
+.full-screen img {
+    border-radius: 10pt;
+    border: 2pt solid #1FC742;
+    max-width: 60%;
+    max-height: 30vw;
+    vertical-align: top;
+}
+
+.full-screen .email-link {
+    font-size: 12pt;
+}
+
+@keyframes holo-fuzz {
+    0% {
+        border: 4pt solid rgba(0, 255, 255, 0.3);
+    }
+    25% {
+        border: 4pt dashed rgba(0, 255, 255, 0.3);
+    }
+    50% {
+        border: 4pt solid rgba(0, 255, 255, 0.3);
+    }
+    75% {
+        border: 4pt dotted rgba(0, 255, 255, 0.3);
+    }
+    100% {
+        border: 4pt solid rgba(0, 255, 255, 0.3);
+    }
+}
+
+@keyframes holo-pulse {
+    0% {
+        opacity: 0.87;
+    }
+    5% {
+        opacity: 0.9;
+    }
+    10% {
+        opacity: 0.87;
+    }
+    15% {
+        opacity: 0.9;
+    }
+    20% {
+        opacity: 0.87;
+    }
+    25% {
+        opacity: 0.9;
+    }
+    30% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.87;
+    }
+    70% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.87;
+    }
+}
+
+.holo-profile {
+    position: relative;
+    width: 250pt;
+    margin: auto;
+    margin-top: 20pt;
+    
+    border-radius: 50% 50% 8pt 8pt;
+    background-color: rgba(0, 255, 255, 0.3);
+    overflow: hidden;
+
+    animation-name: holo-fuzz;
+    animation-duration: 0.1s;
+    animation-iteration-count: infinite;
+
+    z-index: 2;
+}
+
+.holo-image {
+    position: absolute;
+    width: 100%;
+    top: -50pt;
+    left: 0;
+
+    animation-name: holo-pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.holo-overlay {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 280pt;
+    z-index: 3;
+    margin: 0pt;
+    background-color: rgba(0, 255, 255, 0.1);
+}
+
+.holo-base {
+    position: relative;
+    top: -20pt;
+    background: linear-gradient(
+        45deg,
+        color-mix(in hsl, #8BA8B7, white 0%) 10%,
+        color-mix(in hsl, #8BA8B7, white 60%) 13%,
+        color-mix(in hsl, #8BA8B7, white 0%) 16%,
+        color-mix(in hsl, #8BA8B7, white 40%) 19%,
+        color-mix(in hsl, #8BA8B7, white 0%) 22%,
+        color-mix(in hsl, #8BA8B7, white 0%) 80%,
+        color-mix(in hsl, #8BA8B7, white 60%) 83%,
+        color-mix(in hsl, #8BA8B7, white 0%) 86%,
+        color-mix(in hsl, #8BA8B7, white 40%) 89%,
+        color-mix(in hsl, #8BA8B7, white 0%) 92%
+        );
+    width: 300pt;
+    height: 45pt;
+    margin: auto;
+
+    border-radius: 10pt 10pt 50% 50%;
+}

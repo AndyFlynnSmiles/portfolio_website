@@ -1,0 +1,76 @@
+{% extends 'project_learn_more.html' %}
+
+{% block 'details' %}
+{% load static %}
+<h2>OpenGL 2 Alien World</h2>
+<p>An OpenGL 2 project written using C++ for my Computer Graphics course in university.</p>
+<a href="https://github.com/AndyFlynnSmiles/opengl_2_alien_world">>> Source Code <<</a>
+<h3>Scene Description:</h3>
+<img src="{% static "alien_world_scene.png" %}"></img>
+<p>A wavy ocean under a starry sky. A ufo launches and darts around using its powerful spotlight to survey this area of the planet. It has a translucent cockpit, a spinning ring of lights, and flickering lights below used to communicate its findings. Two aliens wander around, exploring a newly discovered small group of islands. The aliens have set up a strange cannon-like apparatus to test the properties of an anomaly in the sky.</p>
+<h3>Controls:</h3>
+<ul>
+    <li><b>W -</b> Move forward.</li>
+    <li><b>A -</b> Move left.</li>
+    <li><b>S -</b> Move backward.</li>
+    <li><b>D -</b> Move right.</li>
+    <li><b>Space -</b> Increase height and activate UFO launch.</li>
+    <li><b>Shift -</b> Decrease height.</li>
+    <li><b>Mouse Move -</b> Look around.</li>
+    <li><b>L -</b> Leave the scene.</li>
+</ul>
+<h3>Features:</h3>
+<ol>
+    <li>
+        <h4>Planar shadows -</h4>
+        <img src="{% static "alien_world_alien_shadow.png" %}"></img>
+        <img src="{% static "alien_world_anomaly_shadow.png" %}"></img>
+        <p>Both of the aliens have shadows. The cannon, its projectiles, and the anomaly also have shadows.</p>
+    </li>
+    <li>
+        <h4>Moving spotlight -</h4>
+        <img src="{% static "alien_world_spotlight.png" %}"></img>
+        <p>The UFO shines a spotlight down as it darts around.</p>
+    </li>
+    <li>
+        <h4>Sky dome -</h4>
+        <img src="{% static "alien_world_sky_dome.png" %}"></img>
+        <p>A starry sky dome is used to minimize distortion.</p>
+    </li>
+    <li>
+        <h4>Surface of revolution -</h4>
+        <img src="{% static "alien_world_surface_of_revolution_rendered.png" %}"></img>
+        <img src="{% static "alien_world_surface_of_revolution.png" %}"></img>
+        <p>The UFO shape is constructed by creating quad rings at intervals with their top and bottom radii calculated by a parabola function. Its normals are calculated using the slope of this function via the derivative.</p>
+    </li>
+    <li>
+        <h4>Mathematically generated surface shape -</h4>
+        <img src="{% static "alien_world_generated_surface_shape_rendered.png" %}"></img>
+        <img src="{% static "alien_world_generated_surface_shape.png" %}"></img>
+        <p>The ocean is a grid of quads with a modified sine wave running in the x direction and a different wave in the z direction. These are averaged to define the height of the wave. This approach came with performance issues, and so I programmed it to generate the vertices with larger gaps the further they are from the camera. This allows for an ocean with smooth detail up close and a vast scale from afar without the performance issue.</p>
+    </li>
+    <li>
+        <h4>Physics model -</h4>
+        <img src="{% static "alien_world_physics_model.png" %}"></img>
+        <p>The cannon fires randomized projectiles that orbit the anomaly by applying gravity but without affecting the anomaly. Also they explode if they hit the anomaly or after a delay.</p>
+    </li>
+    <li>
+        <h4>Spaceship liftoff -</h4>
+        <img src="{% static "alien_world_liftoff.png" %}"></img>
+        <p>On pressing space the UFO turns on and then propels itself, accelerating upwards.</p>
+    </li>
+    <li>
+        <h4>Particle systems -</h4>
+        <img src="{% static "alien_world_particles.png" %}"></img>
+        <p>I adapted the provided particle system code to have a XZ quad due to the vertical nature of my scene. I created three different emitters; downdraft (Blue), explosion (Orange), and flames (Yellow).</p>
+    </li>
+</ol>
+<h3>External sources:</h3>
+<p>I adapted code from the lab for; quadric texture mapping, planar shadows, and particle drawing.
+<p><b>V Textures V</b></p>
+<p>Labs - Glow.bmp</p>
+<p>tilingtextures.com - Wall.bmp</p>
+<p>polyhaven.com - Sky.bmp</p>
+<p>solarsystemscope.com - Sun.bmp</p>
+
+{% endblock %}
